@@ -1,0 +1,38 @@
+.game {
+    padding: 20px;
+}
+
+.status {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--board-size), 1fr);
+    justify-content: center;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    font-size: 36px;
+    color: #333;
+    border: 2px solid #646363;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover {
+    background-color: #7e7d7d;
+}
+
+.reset-button {
+    padding: 5px 10px;
+}
