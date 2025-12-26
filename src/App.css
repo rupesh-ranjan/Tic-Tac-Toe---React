@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(var(--board-size), 1fr);
     justify-content: center;
+    border: 2px solid #646363;
 }
 
 .cell {
