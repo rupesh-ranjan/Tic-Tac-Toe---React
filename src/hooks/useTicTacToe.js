@@ -2,7 +2,6 @@ import { useMemo, useState, useEffect } from "react";
 
 function useTicTacToe(size) {
     const initialBoard = (size) => Array(size * size).fill(null);
-    console.log("size", size);
     const [board, setBoard] = useState(initialBoard(size));
     const [isNextX, setIsNextX] = useState(true);
 
@@ -11,7 +10,6 @@ function useTicTacToe(size) {
         setIsNextX(true);
     }, [size]);
 
-    console.log("board", board);
     const generateWinningPattern = useMemo(() => {
         const pattern = [];
 
@@ -43,23 +41,19 @@ function useTicTacToe(size) {
     // (size - 1) * (i + 1) -> 3 * 4 -> 12
 
     const WINNING_PATTERN = generateWinningPattern;
-    // console.log("Winning Pattern", WINNING_PATTERN);
 
     const calculateWinner = () => {
-        // console.log("first");
         for (let i = 0; i < WINNING_PATTERN.length; i++) {
             const pattern = WINNING_PATTERN[i];
             let countX = 0;
             let countO = 0;
             pattern.forEach((index) => {
-                // console.log("val", board[index]);
                 if (board[index] === "X") countX++;
                 else if (board[index] === "O") countO++;
             });
 
             if (countX === size) return "X";
             if (countO === size) return "O";
-            // console.log("countX", countX, "countO", countO);
 
             // const [a, b, c] = WINNING_PATTERN[i];
             // if (board[a] && board[a] === board[b] && board[b] === board[c]) {
@@ -71,7 +65,6 @@ function useTicTacToe(size) {
     const handleClick = (index) => {
         // check winner or alredy clicked
         const winner = calculateWinner();
-        // console.log("Winner", winner);
         if (winner || board[index]) return;
 
         // if not winning case
